@@ -53,6 +53,8 @@ You can load these artifacts later in `app.py` to perform predictions on new tex
 - `app.py` – Python script that loads the model and vectorizer to make predictions (e.g. command‑line or web interface).  
 - `README.md` – project description and usage instructions.
 
+
+
 ## How to Run Locally
 
 ```bash
@@ -75,11 +77,12 @@ python app.py
 
 ## Author
 
-**Name:** Abdul Musawir  
-**Role:** Machine Learning & Data Science Enthusiast  
-**Location:** Lahore, Pakistan  
+Name:Abdul Musawir  
+Role: Machine Learning & Data Science Enthusiast  
+Location: Lahore, Pakistan  
 
 Feel free to connect with me:
 
 - LinkedIn: https://www.linkedin.com/in/<your-username>  
 - GitHub:  https://github.com/Musawir456  
+
