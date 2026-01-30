@@ -83,6 +83,6 @@ Location: Lahore, Pakistan
 
 Feel free to connect with me:
 
-- LinkedIn: https://www.linkedin.com/in/<your-username>  
+- LinkedIn: https://www.linkedin.com/in/<musawir_4>  
 - GitHub:  https://github.com/Musawir456  
 
