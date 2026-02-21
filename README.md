@@ -205,7 +205,7 @@ print(f"Prediction: {prediction[0]}")
 <div align="center">
 
 **Abdul Musawir**
-*Machine Learning & Data Scientist*
+*AI/ML Engineer & Data Scientist*
 📍 Lahore, Pakistan
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/musawir_4)
