@@ -1,88 +1,222 @@
-# AI vs Human Content Detector 2025
+# 🤖 AI vs Human Content Detector 2025
 
-This project aims to automatically detect whether a given piece of text is **AI‑generated** or **human‑written**. The goal is to build a lightweight machine learning pipeline that can be easily used in real‑world applications such as content moderation, academic integrity checks, and blog/article verification.
+<div align="center">
 
-## Project Overview
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-1.x-orange?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-- A labeled dataset of AI‑generated and human‑written text is used to train a classifier.
-- Text is cleaned and converted into numerical features using TF‑IDF vectorization.
-- A Logistic Regression model is trained on these features to distinguish AI vs Human content.
-- The trained model and vectorizer are saved as `.pkl` files so they can be reused in production without retraining every time.
+**A lightweight yet powerful ML pipeline to automatically detect whether text is AI-generated or human-written.**
 
-## Tech Stack
+*Ideal for content moderation, academic integrity checks, and blog/article verification.*
 
-- **Language:** Python  
-- **Libraries:** scikit‑learn, pandas, numpy, matplotlib / seaborn (for analysis and plots), joblib / pickle  
-- **Environment:** Jupyter Notebook, VS Code  
-- **Model:** Logistic Regression with TF‑IDF features  
+</div>
 
-## Dataset
+---
 
-- File: `ai_human_content_detection_dataset.csv`  
-- Each row contains:
-  - `text`: the input text sample.
-  - `label`: the target class (e.g. `AI` or `Human`).  
-- The dataset is split into training and testing sets (for example 80% train, 20% test) to evaluate the model performance.
+## 📌 Table of Contents
 
-## Preprocessing & Feature Engineering
+- [Overview](#-overview)
+- [Demo](#-demo)
+- [Tech Stack](#-tech-stack)
+- [Dataset](#-dataset)
+- [Project Structure](#-project-structure)
+- [How It Works](#-how-it-works)
+- [Getting Started](#-getting-started)
+- [Model Performance](#-model-performance)
+- [Usage](#-usage)
+- [Author](#-author)
 
-The following preprocessing steps are applied:
+---
 
-- Lowercasing text.
-- Removing extra spaces, punctuation or special characters (depending on your code).
-- Optional: removing stopwords and applying tokenization.
-- Converting text into TF‑IDF vectors using `TfidfVectorizer` from scikit‑learn.
+## 🧠 Overview
 
-These TF‑IDF vectors are then used as input features for the Logistic Regression model.
+With the rapid rise of AI-generated content, distinguishing between human and machine-written text has become increasingly important. This project builds a **binary text classifier** using classical NLP and machine learning techniques to tackle this challenge.
 
-## Model Training
+**Key highlights:**
+- Cleans and preprocesses raw text data
+- Converts text to numerical features using **TF-IDF Vectorization**
+- Trains a **Logistic Regression** classifier with high accuracy
+- Saves the trained model and vectorizer as `.pkl` files for production reuse
+- Includes an `app.py` script for real-time inference — no retraining needed
 
-- A Logistic Regression classifier is trained on the TF‑IDF feature matrix.
-- Evaluation metrics such as accuracy, precision, recall, and F1‑score are computed on the test set.
-- The trained model is saved as `logreg_model.pkl`.
-- The fitted TF‑IDF vectorizer is saved as `tfidf_vectorizer.pkl`.
+---
 
-You can load these artifacts later in `app.py` to perform predictions on new text without retraining.
+## 🎬 Demo
 
-## Files in this Repository
+```
+Enter text: The mitochondria is the powerhouse of the cell...
 
-- `AI_vs_Human_Content_Detection.IPYNB` – main notebook for data exploration, preprocessing, model training, and evaluation.  
-- `ai_human_content_detection_dataset.csv` – dataset containing AI and human text samples.  
-- `logreg_model.pkl` – saved Logistic Regression model.  
-- `tfidf_vectorizer.pkl` – saved TF‑IDF vectorizer.  
-- `app.py` – Python script that loads the model and vectorizer to make predictions (e.g. command‑line or web interface).  
-- `README.md` – project description and usage instructions.
+🔍 Prediction: HUMAN ✅
+📊 Confidence: 91.4%
+```
 
+---
 
+## 🛠 Tech Stack
 
-## How to Run Locally
+| Category | Tools |
+|---|---|
+| **Language** | Python 3.8+ |
+| **ML & NLP** | scikit-learn, TF-IDF, Logistic Regression |
+| **Data Handling** | pandas, numpy |
+| **Visualization** | matplotlib, seaborn |
+| **Model Persistence** | joblib / pickle |
+| **Environment** | Jupyter Notebook, VS Code |
+
+---
+
+## 📂 Dataset
+
+| Field | Description |
+|---|---|
+| **File** | `ai_human_content_detection_dataset.csv` |
+| **`text`** | Input text sample |
+| **`label`** | Target class — `AI` or `Human` |
+| **Split** | 80% Train / 20% Test |
+
+---
+
+## 🗂 Project Structure
+
+```
+ai-vs-human-content-detector-2025/
+│
+├── 📓 AI_vs_Human_Content_Detection.IPYNB   # Main notebook: EDA, preprocessing, training & evaluation
+├── 📊 ai_human_content_detection_dataset.csv # Labeled dataset (AI & Human samples)
+├── 🤖 logreg_model.pkl                       # Saved Logistic Regression model
+├── 🔤 tfidf_vectorizer.pkl                   # Saved TF-IDF vectorizer
+├── 🚀 app.py                                 # Inference script — load model & predict on new text
+├── 📋 requirements.txt                       # Python dependencies
+└── 📄 README.md                              # Project documentation
+```
+
+---
+
+## ⚙️ How It Works
+
+```
+Raw Text
+   │
+   ▼
+┌─────────────────────────────┐
+│     Text Preprocessing      │
+│  • Lowercasing              │
+│  • Remove punctuation       │
+│  • Strip extra whitespace   │
+│  • (Optional) Stopwords     │
+└─────────────────────────────┘
+   │
+   ▼
+┌─────────────────────────────┐
+│    TF-IDF Vectorization     │
+│  Converts text → numbers    │
+└─────────────────────────────┘
+   │
+   ▼
+┌─────────────────────────────┐
+│   Logistic Regression       │
+│   Binary Classifier         │
+│   AI  vs  Human             │
+└─────────────────────────────┘
+   │
+   ▼
+  Prediction + Confidence Score
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
 
 ```bash
-# Clone the repository
 git clone https://github.com/Musawir456/ai-vs-human-content-detector-2025.git
 cd ai-vs-human-content-detector-2025
+```
 
-# (Optional) create virtual environment
-# python -m venv venv
-# venv\Scripts\activate  # on Windows
+### 2. (Optional) Create a Virtual Environment
 
-# Install dependencies (create requirements.txt with your libraries)
+```bash
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-# Option 1: run the notebook for training/analysis
+### 4. Run the Notebook (Training & Analysis)
+
+```bash
 jupyter notebook "AI_vs_Human_Content_Detection.IPYNB"
+```
 
-# Option 2: run the app for inference
+### 5. Run the Inference App
+
+```bash
 python app.py
+```
 
-## Author
+---
 
-Name:Abdul Musawir  
-Role: Machine Learning & Data Science Enthusiast  
-Location: Lahore, Pakistan  
+## 📈 Model Performance
 
-Feel free to connect with me:
+| Metric | Score |
+|---|---|
+| **Accuracy** | ~XX% |
+| **Precision** | ~XX% |
+| **Recall** | ~XX% |
+| **F1-Score** | ~XX% |
 
-- LinkedIn: https://www.linkedin.com/in/<musawir_4>  
-- GitHub:  https://github.com/Musawir456  
+> 📝 *Update this table with your actual evaluation results after training.*
 
+---
+
+## 💡 Usage
+
+Once the model is trained, use `app.py` to predict on any new text:
+
+```python
+import joblib
+
+model = joblib.load("logreg_model.pkl")
+vectorizer = joblib.load("tfidf_vectorizer.pkl")
+
+text = ["Your sample text goes here..."]
+features = vectorizer.transform(text)
+prediction = model.predict(features)
+
+print(f"Prediction: {prediction[0]}")
+```
+
+---
+
+## 👨‍💻 Author
+
+<div align="center">
+
+**Abdul Musawir**
+*Machine Learning & Data Scientist*
+📍 Lahore, Pakistan
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/musawir_4)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Musawir456)
+
+</div>
+
+---
+
+<div align="center">
+
+⭐ **If you found this project useful, please give it a star!** ⭐
+
+*Made with ❤️ by Abdul Musawir*
+
+</div>
