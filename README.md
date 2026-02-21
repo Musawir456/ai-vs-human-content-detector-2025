@@ -195,7 +195,8 @@ prediction = model.predict(features)
 
 print(f"Prediction: {prediction[0]}")
 ```
-
+## Screenshots:
+![Project Screenshot](assets/Screenshot(1151).png)
 ---
 
 ## 👨‍💻 Author
